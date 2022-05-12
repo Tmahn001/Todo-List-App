@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<form action="/addItem/" method="post">
+    {% csrf_token %}
+    <input type="text" name="body">
+    <input type="submit" value="Add item to do">
+
+</form>
+<ul>
+    {% for i in all_items %}
+        <li><h2 style="color:blue;">{{i.body}}</h2>
+            <form action="/deleteTodoItem/{{i.id}}/" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete" style="color:red;">
+
+            </form>
+        </li>
+        </br>
+    {% endfor %}
+</ul>
+{% endblock content %}
+
