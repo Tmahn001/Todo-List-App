@@ -11,10 +11,10 @@ def addTodoView(request):
     a = request.POST['body']
     new_item = Post(body=a)
     new_item.save()
-    return HttpResponseRedirect('/todoapp/')
+    return HttpResponseRedirect('')
 
 def deleteTodoView(request, i):
     y = Post.objects.get(id=i)
     y.delete()
-    return HttpResponseRedirect("/todoapp/")
+    return HttpResponseRedirect('')
 
